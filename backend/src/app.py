@@ -46,7 +46,7 @@ def templateModel1():
     imgTemp2.add_logo(logo, position=(-100, -340))
 
     im_io = io.BytesIO()
-    imgTemp2.bg.save(im_io, 'png', quality=70)
+    imgTemp2.bg.save(im_io, 'png', quality=100)
     
     im_io.seek(0)
     im_io_png = base64.b64encode(im_io.getvalue())
@@ -78,7 +78,7 @@ def templateModel2():
     imgPost.add_website(website, text_position=(0, 560))
     im_io = io.BytesIO()
     
-    imgPost.bg.save(im_io, 'png', quality=70)
+    imgPost.bg.save(im_io, 'png', quality=100)
     
     im_io.seek(0)
     im_io_png = base64.b64encode(im_io.getvalue())

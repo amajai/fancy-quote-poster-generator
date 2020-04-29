@@ -15,7 +15,7 @@ const InputField = ({
     <div className="border border-secondary rounded col-11 col-md-7 order-md-1 mx-2 p-2">
       <h3 className="m-3">{modelType.toUpperCase()} TEMPLATE</h3>
       <form onSubmit={submit} className="container">
-        {modelType == "model-1" && (
+        {modelType === "model-1" && (
           <div>
             <div className="form-row">
               <div className="form-group col-md-12">
@@ -59,7 +59,7 @@ const InputField = ({
             </div>
           </div>
         )}
-        {modelType == "model-2" && (
+        {modelType === "model-2" && (
           <div>
             <div className="form-row">
               <div className="form-group col-md-6">
@@ -116,7 +116,7 @@ const InputField = ({
             </div>
           </div>
         )}
-        {modelType == "model-3" && (
+        {modelType === "model-3" && (
           <div>
             <div className="form-row">
               <div className="form-group col-md-12">
