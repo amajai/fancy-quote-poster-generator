@@ -75,7 +75,7 @@ class App extends Component {
     await axios({
       method: "POST",
       url: `/download-img/${template}`,
-      baseURL: "http://127.0.0.1:5000",
+      baseURL: "https://fancy-quote-poster-app.herokuapp.com",
       headers: { "content-type": "application/json" },
       data: {
         uploadedImgData: uploadedImgData,
