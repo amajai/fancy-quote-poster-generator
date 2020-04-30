@@ -46,7 +46,7 @@ def templateModel1():
     imgTemp2.add_logo(logo, position=(-100, -340))
 
     im_io = io.BytesIO()
-    imgTemp2.bg.save(im_io, 'png', quality=100)
+    imgTemp2.bg.save(im_io, 'png', quality=70)
     
     im_io.seek(0)
     im_io_png = base64.b64encode(im_io.getvalue())
@@ -72,13 +72,13 @@ def templateModel2():
     imgPost.add_bg_text_model(frame=True)
     imgPost.add_text_quote(quote, position=(0,-30), base_text_size=80, max_text_width=650)
     imgPost.add_text_quote_owner(quoteOwner, position=(0,480))
-    imgPost.add_text_quote_source(quoteSource, 'BAHNSCHRIFT.ttf', position=(0, 315))
+    imgPost.add_text_quote_source(quoteSource, position=(0, 315))
 
     imgPost.add_logo(logo, position=(0, -300))
     imgPost.add_website(website, text_position=(0, 560))
     im_io = io.BytesIO()
     
-    imgPost.bg.save(im_io, 'png', quality=100)
+    imgPost.bg.save(im_io, 'png', quality=70)
     
     im_io.seek(0)
     im_io_png = base64.b64encode(im_io.getvalue())
@@ -107,7 +107,7 @@ def templateModel3():
     imgTemp3.add_text_quote_owner(quoteOwner, position=(0,480))
 
     im_io = io.BytesIO()
-    imgTemp3.bg.save(im_io, 'png', quality=100)
+    imgTemp3.bg.save(im_io, 'png', quality=70)
     
     im_io.seek(0)
     im_io_png = base64.b64encode(im_io.getvalue())

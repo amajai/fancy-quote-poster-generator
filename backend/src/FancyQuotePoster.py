@@ -69,7 +69,7 @@ class FancyQuotePoster:
            self.add_to_bg.text((cw, ch), wrappedText, fill='black', font=font, align=align)
         self.bg.save(self.img_name)
 
-    def add_text_quote_source(self, source_text, font_style='PlayfairDisplay.ttf', base_text_size=50, position=(0, 0), max_text_width = 650):
+    def add_text_quote_source(self, source_text, font_style='DejaVuSans.ttf', base_text_size=50, position=(0, 0), max_text_width=650, position_reset=False):
         text_width_is_wide = True
         while text_width_is_wide:
             font = ImageFont.truetype(os.path.join(
@@ -82,13 +82,14 @@ class FancyQuotePoster:
         x, y = position
         cw = (self.max_width - width)//2 + x
         ch = (self.max_height - height)//2 + y
-        self.add_to_bg.text((cw, ch), source_text,
-                            fill='black', font=font, align='center')
+        if position_reset:
+            self.add_to_bg.text((x, y), source_text,fill='black', font=font, align='center')
+        else:
+            self.add_to_bg.text((cw, ch), source_text,fill='black', font=font, align='center')
         self.bg.save(self.img_name)
 
     def add_text_quote_owner(self, quote_text, font_style='PlayfairDisplay.ttf', base_text_size=50, position=(0, 0), position_reset=False):
-        font = ImageFont.truetype(os.path.join(
-            'fonts', font_style), base_text_size)
+        font = ImageFont.truetype(os.path.join('fonts', font_style), base_text_size)
         width, height = self.add_to_bg.textsize(quote_text, font=font)
         x, y = position
         cw = (self.max_width - width)//2 + x
@@ -108,7 +109,7 @@ class FancyQuotePoster:
         self.bg.paste(add_logo, (cw, ch), add_logo.convert('RGBA'))
         self.bg.save(self.img_name)
 
-    def add_social_profile(self, social_icon, profile_link, font_style='BAHNSCHRIFT.ttf', base_text_size=50, icon_position=(60, 60), text_position=(60, 0)):
+    def add_social_profile(self, social_icon, profile_link, font_style='DejaVuSans.ttf', base_text_size=50, icon_position=(60, 60), text_position=(60, 0)):
         if social_icon != None:
             add_social_icon = Image.open(social_icon).resize((60, 60))
             self.bg.paste(add_social_icon, icon_position,
@@ -122,9 +123,8 @@ class FancyQuotePoster:
         self.add_to_bg.text((x1+x2, y1+y2), profile_link, font=font)
         self.bg.save(self.img_name)
 
-    def add_website(self, domain, font_style='BAHNSCHRIFT.ttf', base_text_size=50, icon_position=(60, 60), text_position=(0, 0)):
-        font = ImageFont.truetype(os.path.join(
-            'fonts', font_style), base_text_size)
+    def add_website(self, domain, font_style='DejaVuSans.ttf', base_text_size=50, icon_position=(60, 60), text_position=(0, 0)):
+        font = ImageFont.truetype(os.path.join('fonts', font_style), base_text_size)
         width, height = self.add_to_bg.textsize(domain, font=font)
         x, y = text_position
         cw = (self.max_width - width)//2 + x

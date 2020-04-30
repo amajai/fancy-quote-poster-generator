@@ -88,9 +88,7 @@ class App extends Component {
     })
       .then(response => {
         const imgData = response.data.imgData;
-        console.log(response.data);
         this.setState({ imgData });
-        return response.data;
       })
       .catch(error => {
         console.log(error);
